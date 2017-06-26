@@ -1,0 +1,12 @@
+<h3 class = "text-center">Student Details</h1>
+<p>
+	<strong>Student Name: </strong>
+	<%= @student.name %>
+</p>
+<p>
+	<strong>Department: </strong>
+	<%= @student.department.department_name %>
+</p>
+<br>
+<%= link_to "Edit", edit_student_path(@student) %> &nbsp;&nbsp;
+<%= link_to "Back To List", students_path %>

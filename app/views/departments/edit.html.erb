@@ -1,0 +1,13 @@
+<h3 class = 'text-center'>Edit Department</h3><br>
+<%= form_for @department, validate: true do |f| %>
+	<p>
+		<strong>Department Name: </strong>
+		<%= f.text_field :department_name %>
+	</p>
+	<br>
+	<p>
+		<%= f.submit %>
+	</p>
+<%end%>
+<br>
+<%= link_to "Back To List", departments_path %>

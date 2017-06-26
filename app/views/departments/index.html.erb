@@ -1,0 +1,43 @@
+<h1 class = 'text-center'>Departments List</h1><br>
+<div class="container-fluid">	
+	<div class="col-sm-9"></div>
+	<div class="col-sm-3">
+		<%= link_to new_department_path, class: "btn btn-success btn-md"  do %> 
+			<i class='fa fa-plus'></i>&nbsp; Add Department
+		<%end%>
+	</div>
+</div>
+<br>
+<br>
+<div class = 'container-fluid'>
+	<table class='table table-striped table-bordered'>
+		<thead>
+			<tr class="danger">
+				<th>Department Name</th>
+				<th class="col-sm-1">View</th>
+				<th class="col-sm-1">Edit</th>
+				<th class="col-sm-1">Delete</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @departments.each do |dept| %>
+				<tr>
+					<td><%= dept.department_name %></td>
+					<td><%= link_to department_path(dept), class: "btn btn-info btn-sm" do %> 
+							<i class='fa fa-eye'></i> 
+						<%end%>
+					</td>
+					<td><%= link_to edit_department_path(dept), class: "btn btn-warning btn-sm" do %>
+							<i class='fa fa-pencil'></i>
+						<%end%>
+					</td>
+					<td><%= link_to department_path(dept), method: :delete, :data => {confirm: "Are You Sure?"}, class: "btn btn-danger btn-sm" do %>
+							<i class='fa fa-trash'></i>
+						<%end%>
+					</td>
+				</tr>
+			<%end%>
+		</tbody>
+	</table>
+</div>
+<br>
