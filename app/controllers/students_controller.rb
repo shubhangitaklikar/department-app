@@ -1,6 +1,5 @@
 class StudentsController < ApplicationController
-
-  before_action :get_student, :only => [:show, :edit, :update, :destroy]
+  before_action :get_student, only: %i[show edit update destroy]
 
   def index
     @students = Student.all
@@ -16,21 +15,19 @@ class StudentsController < ApplicationController
       redirect_to student_path(@student)
     else
       puts @student.errors.full_messages
-      render "new"
+      render 'new'
     end
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @student.update(student_params)
       redirect_to student_path(@student)
     else
-      render "edit"
+      render 'edit'
     end
   end
 

@@ -1,6 +1,5 @@
 class DepartmentsController < ApplicationController
-
-  before_action :get_department, only: [:show, :edit, :update, :destroy]
+  before_action :get_department, only: %i[show edit update destroy]
 
   def index
     @departments = Department.all
@@ -15,7 +14,7 @@ class DepartmentsController < ApplicationController
     if @department.save
       redirect_to department_path(@department)
     else
-      render "new"
+      render 'new'
     end
   end
 
@@ -23,14 +22,13 @@ class DepartmentsController < ApplicationController
     @students = @department.students
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @department.update_attributes(department_params)
       redirect_to department_path(@department)
     else
-      render "edit"
+      render 'edit'
     end
   end
 
